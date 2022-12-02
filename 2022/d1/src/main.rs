@@ -1,11 +1,8 @@
-use std::env;
 use std::fs::File;
 use std::io::{self, BufRead, Lines};
 
 fn main() {
-    let file: String = env::args().nth(1).expect("no input file specified");
-
-    let mut elves = parse_elves(& file);
+    let mut elves = parse_elves("input.txt");
     elves.sort();
     elves.reverse();
 
