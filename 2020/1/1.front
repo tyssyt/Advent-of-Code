@@ -1,0 +1,44 @@
+//Compiled with 1d1407d56fab104cce986803a9a7e46f8b445715
+import File;
+import IO;
+import Strings;
+import Stringer;
+import List;
+
+namespace DayOne:
+
+/*
+//part 1
+export main(args: [[char]]) {
+    numbers := List<int64>.create();
+    for line : File.readLines(args[1]) {
+        numbers.add(Strings.parseInt(line));
+    }
+    for i : numbers {
+        for j : numbers {
+            if i+j==2020 {
+                    IO.printLine(Stringer.format("% * % = %", i, j, i*j));
+                return;
+            }
+        }
+    }
+}
+*/
+
+//part 2
+export main(args: [[char]]) {
+    numbers := List<int64>.create();
+    for line : File.readLines(args[1]) {
+        numbers.add(Strings.parseInt(line));
+    }
+    for i : numbers {
+        for j : numbers {
+            for k : numbers {
+                if i+j+k==2020 {
+                    IO.printLine(Stringer.format("% * % * % = %", i, j, k, i*j*k));
+                    return;
+                }
+            }
+        }
+    }
+}
