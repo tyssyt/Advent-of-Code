@@ -19,7 +19,7 @@ fn read_input() -> impl Iterator<Item = String> {
 }
 
 fn pair_overlap(elves: &str, partial: bool) -> bool {
-    let (elf1, elf2) = split(&elves, ",").expect(&format!("line has no comma: {}", elves));
+    let (elf1, elf2) = elves.split_once(",").expect(&format!("line has no comma: {}", elves));
 
     let (e1l, e1u) = get_section(elf1);
     let (e2l, e2u) = get_section(elf2);
@@ -32,11 +32,6 @@ fn pair_overlap(elves: &str, partial: bool) -> bool {
 }
 
 fn get_section(elf: &str) -> (u32, u32) {
-    let (lower, upper) = split(elf, "-").expect(&format!("elf has no -: {}", elf));
+    let (lower, upper) = elf.split_once("-").expect(&format!("elf has no -: {}", elf));
     (lower.parse().expect(&format!("not a number: {}", lower)), upper.parse().expect(&format!("not a number {}", upper)))
-}
-
-fn split<'a>(string: &'a str, sep: &str) -> Option<(&'a str, &'a str)> {
-    let (first, second) = string.split_at(string.find(sep)?);
-    Some((first, &second[1..]))
 }

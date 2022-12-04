@@ -4,10 +4,9 @@ use std::io::{self, BufRead, Lines};
 fn main() {
     let mut elves = parse_elves("input.txt");
     elves.sort();
-    elves.reverse();
 
-    println!("Snackboi: {}", elves[0]);
-    println!("Top 3: {}", elves[0] + elves[1] + elves[2]);
+    println!("Snackboi: {}", elves.last().unwrap());
+    println!("Top 3: {}", elves.iter().rev().take(3).sum::<u32>());
 }
 
 fn parse_elves(filename: &str) -> Vec<u32> {    
