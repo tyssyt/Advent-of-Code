@@ -11,7 +11,6 @@ fn main() {
         let (idx, marker) = find_marker(&input, 14);
         println!("{} found at {}", marker, idx);
     }
-
 }
 
 fn find_marker(input: &str, size: usize) -> (usize, Cow<str>) {

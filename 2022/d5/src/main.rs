@@ -47,7 +47,7 @@ fn parse_stacks(lines: impl Iterator<Item = String>) -> Vec<Vec<char>> {
     stacks
 }
 
-fn parse_instruction(stacks: &mut Vec<Vec<char>>, instruction: &str, is_crate_mover9000: bool) -> Option<()> {       
+fn parse_instruction(stacks: &mut Vec<Vec<char>>, instruction: &str, is_crate_mover9000: bool) -> Option<()> {
     let [amount, from, to] = instruction
         .split_whitespace()
         .skip(1).step_by(2)
